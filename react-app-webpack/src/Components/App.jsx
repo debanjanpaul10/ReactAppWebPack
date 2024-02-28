@@ -1,5 +1,6 @@
 import React from "react";
-
+import FunctionalComponent from "./FunctionalComponent";
+import ClassComponent from "./ClassComponent";
 /**
  * The Main App Component
  * @returns {JSX.Element} The React JSX Element
@@ -7,8 +8,9 @@ import React from "react";
 function App() {
     return (
         <>
-            <h1>Hello, world!</h1>
-            <h2>I am a react App</h2>
+            <FunctionalComponent />
+            <br />
+            <ClassComponent />
         </>
     )
 }
