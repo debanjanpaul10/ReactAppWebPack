@@ -46,7 +46,7 @@ class ClassComponent extends Component {
 	 */
 	render() {
 		return (
-			<Card style={{ width: 'full' }} className="text-center">
+			<Card style={{ width: 'full' }} className="text-center" data-bs-theme="dark">
 				<Card.Body>
 					<Card.Title className="display-4">I am the Class Component</Card.Title>
 					<Card.Subtitle className="mb-2 mt-5 fs-3">Count : {this.state.counter}</Card.Subtitle>

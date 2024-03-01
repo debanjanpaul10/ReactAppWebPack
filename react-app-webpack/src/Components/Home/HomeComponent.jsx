@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import FunctionalComponent from "./FunctionalComponent";
-import ClassComponent from "./ClassComponent";
+import FunctionalComponent from "./Components/FunctionalComponent";
+import ClassComponent from "./Components/ClassComponent";
 /**
  * The Home Component
  * @returns {JSX.Element} The React JSX Element

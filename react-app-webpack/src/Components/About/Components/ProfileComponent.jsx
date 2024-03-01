@@ -3,11 +3,11 @@ import { Modal } from "react-bootstrap";
 
 /**
  * The Profile Component
- * @param {{key: number, name: string, email: string,
+ * @param {{ name: string, email: string,
  *  website: string, phone: number}} param The props from parent component
  * @returns {JSX.Element} The React JSX Element
  */
-function ProfileComponent({ key, name, email, website, phone }) {
+function ProfileComponent({ name, email, website, phone }) {
 	const [showModal, setShowModal] = useState(false);
 
     /** Shows the modal */

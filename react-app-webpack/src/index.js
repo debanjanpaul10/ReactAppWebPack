@@ -6,18 +6,20 @@ import "../public/favicon.jpg";
 
 import App from "./Components/App";
 import RootReducer from "./Components/Store/Reducer";
-import { applyMiddleware, combineReducers, createStore } from "redux";
+import { combineReducers } from "redux";
 import { thunk } from "redux-thunk";
 import { Provider } from "react-redux";
-import { composeWithDevTools } from "redux-devtools-extension";
+import { configureStore } from "@reduxjs/toolkit";
 
 const defaultReducer = combineReducers({
 	RootReducer: RootReducer,
 });
 
-const store = createStore(defaultReducer, composeWithDevTools(
-	applyMiddleware(thunk)
-));
+const store = configureStore({
+	reducer: defaultReducer,
+	middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(thunk),
+	devTools: true,
+});
 
 const domNode = document.getElementById("root");
 const root = createRoot(domNode);

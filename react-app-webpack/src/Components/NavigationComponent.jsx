@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
  */
 function NavigationComponent() {
 	return (
-		<Navbar className="bg-body-tertiary p-2">
+		<Navbar className="bg-body-tertiary p-2" data-bs-theme="dark">
 			<NavbarBrand>React Application</NavbarBrand>
 			<Nav className="me-auto">
 				<NavLink as={Link} to="/">

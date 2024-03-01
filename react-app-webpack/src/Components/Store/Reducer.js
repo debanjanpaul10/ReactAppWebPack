@@ -9,6 +9,12 @@ const initialState = {
     isLoading: true,
 } 
 
+/**
+ * Saves the data to redux store
+ * @param {Object} state The state
+ * @param {Object} action The action type
+ * @returns {Object} The store data state
+ */
 const reducer = (state = initialState, action = null) => {
     try {
         switch(action.type) {
