@@ -25,7 +25,7 @@ const FunctionalComponent = (props) => {
 	return (
 		<Card style={{ width: "full" }} className="text-center">
 			<Card.Body>
-				<Card.Title className="fs-1">I am the Functional Component</Card.Title>
+				<Card.Title className="display-4">I am the Functional Component</Card.Title>
 				<Card.Subtitle className="mb-2 mt-5 fs-3">
 					Count : {counter}
 				</Card.Subtitle>

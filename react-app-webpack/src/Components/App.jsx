@@ -3,8 +3,9 @@ import { Route, Routes } from "react-router-dom";
 
 import HomeComponent from "./HomeComponent";
 import "../Styles/App.scss";
-import AboutComponent from "./AboutComponent";
+import AboutComponent from "./About/AboutComponent";
 import NavigationComponent from "./NavigationComponent";
+
 
 /**
  * The Main App Component
@@ -16,8 +17,7 @@ function App() {
 			<NavigationComponent />
 			<Routes>
 				<Route path="/" element={<HomeComponent />} />
-				<Route index element={<HomeComponent />} />
-				<Route path="/About" element={<AboutComponent />}/>
+				<Route path="/About" element={<AboutComponent />} />
 			</Routes>
 		</div>
 	);
