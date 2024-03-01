@@ -8,10 +8,16 @@ import { Button, Card } from "react-bootstrap";
 const FunctionalComponent = (props) => {
 	const [counter, setCounter] = useState(0);
 
+	/**
+	 * The function to increase the counter value
+	 */
 	const increment = () => {
 		setCounter((prevState) => prevState + 1);
 	};
 
+	/**
+	 * The function to decrease the counter value
+	 */
 	const decrement = () => {
 		setCounter((prevState) => prevState - 1);
 	};

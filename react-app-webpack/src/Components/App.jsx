@@ -1,8 +1,11 @@
 import React from "react";
-import FunctionalComponent from "./FunctionalComponent";
-import ClassComponent from "./ClassComponent";
+import { Route, Routes } from "react-router-dom";
+
+import HomeComponent from "./HomeComponent";
 import "../Styles/App.scss";
-import { Container, Row, Col } from "react-bootstrap";
+import AboutComponent from "./AboutComponent";
+import NavigationComponent from "./NavigationComponent";
+
 /**
  * The Main App Component
  * @returns {JSX.Element} The React JSX Element
@@ -10,20 +13,12 @@ import { Container, Row, Col } from "react-bootstrap";
 function App() {
 	return (
 		<div data-bs-theme="dark">
-			<Container>
-				<Row>
-					<Col>
-						<div className="p-2 mt-5">
-							<FunctionalComponent />
-						</div>
-					</Col>
-					<Col>
-						<div className="p-2 mt-5">
-							<ClassComponent />
-						</div>
-					</Col>
-				</Row>
-			</Container>
+			<NavigationComponent />
+			<Routes>
+				<Route path="/" element={<HomeComponent />} />
+				<Route index element={<HomeComponent />} />
+				<Route path="/About" element={<AboutComponent />}/>
+			</Routes>
 		</div>
 	);
 }

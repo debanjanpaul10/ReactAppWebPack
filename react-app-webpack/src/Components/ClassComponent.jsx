@@ -20,6 +20,9 @@ class ClassComponent extends Component {
 		this.decrement = this.decrement.bind(this);
 	}
 
+	/**
+	 * The method to increment the counter value
+	 */
 	increment() {
 		this.setState(prevState => ({
 			...prevState,
@@ -27,6 +30,9 @@ class ClassComponent extends Component {
 		}));
 	}
 
+	/**
+	 * The method to decrement the counter value
+	 */
 	decrement(){
 		this.setState(prevState => ({
 			...prevState,
