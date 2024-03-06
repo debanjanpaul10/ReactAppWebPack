@@ -27,6 +27,18 @@ export const GetUsersDataApiAsync = () => {
 };
 
 /**
+ * Saves the Users API data to redux store
+ * @param {Object} data The data from the API
+ * @returns {Object} The action type and payload data
+ */
+export const GetUsersDataApiAsyncSuccess = (data) => {
+	return {
+		type: actionTypes.GET_ABOUT_NAMES_JSON_DATA,
+		payload: data,
+	};
+};
+
+/**
  * Gets the Users data based on UserID from the server
  * @returns {Promise} The Promise from the API response
  */
@@ -45,18 +57,6 @@ export const GetUsersDataByIdApiAsync = (id) => {
 				dispatch(StopLoader());
 			}, 3000);
 		}
-	};
-};
-
-/**
- * Saves the Users API data to redux store
- * @param {Object} data The data from the API
- * @returns {Object} The action type and payload data
- */
-export const GetUsersDataApiAsyncSuccess = (data) => {
-	return {
-		type: actionTypes.GET_ABOUT_NAMES_JSON_DATA,
-		payload: data,
 	};
 };
 

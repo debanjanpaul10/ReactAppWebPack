@@ -17,6 +17,9 @@ function NavigationComponent() {
 				<NavLink as={Link} to="/About">
 					About
 				</NavLink>
+				<NavLink as={Link} to="/Contact">
+					Contact Us!
+				</NavLink>
 			</Nav>
 		</Navbar>
 	);

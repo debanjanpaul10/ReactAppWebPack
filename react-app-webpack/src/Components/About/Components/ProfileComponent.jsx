@@ -17,7 +17,7 @@ function ProfileComponent({ name, email, website, phone }) {
 
 	return (
 		<>
-			<span id="profiledata" onClick={handleShow} className="text-center lead">
+			<span id="profiledata" onClick={handleShow} className="text-center lead pointer_cursor">
 				{name}
 			</span>
 

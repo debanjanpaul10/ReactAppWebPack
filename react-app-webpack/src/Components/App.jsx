@@ -5,6 +5,7 @@ import HomeComponent from "./Home/HomeComponent";
 import "../Styles/App.scss";
 import AboutComponent from "./About/AboutComponent";
 import NavigationComponent from "./NavigationComponent";
+import ContactComponent from "./Contact/ContactComponent";
 
 /**
  * The Main App Component
@@ -15,8 +16,9 @@ function App() {
 		<div>
 			<NavigationComponent />
 			<Routes>
-				<Route path="/" element={<HomeComponent />} />
+				<Route index element={<HomeComponent />} />
 				<Route path="/About" element={<AboutComponent />} />
+				<Route path="/Contact" element={<ContactComponent />} />
 			</Routes>
 		</div>
 	);

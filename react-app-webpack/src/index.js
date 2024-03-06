@@ -1,6 +1,6 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
-import { BrowserRouter } from "react-router-dom";
+import { MemoryRouter } from "react-router-dom";
 
 import "../public/favicon.jpg";
 
@@ -25,10 +25,10 @@ const domNode = document.getElementById("root");
 const root = createRoot(domNode);
 root.render(
 	<React.StrictMode>
-		<BrowserRouter>
+		<MemoryRouter>
 			<Provider store={store}>
 				<App />
 			</Provider>
-		</BrowserRouter>
+		</MemoryRouter>
 	</React.StrictMode>
 );

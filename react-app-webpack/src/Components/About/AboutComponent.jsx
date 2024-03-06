@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Spinner, Stack, OverlayTrigger, Tooltip } from "react-bootstrap";
+import { Spinner, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { createSelector } from "reselect";
 
@@ -67,17 +67,20 @@ function AboutComponent() {
 					/>
 				</div>
 			) : (
-				<Stack gap={3} className="mt-5">
+				<div className="mt-5 text-center">
 					{AboutComponentStoreData.namesData.map((x) => (
-						<ProfileComponent
-							key={x.id}
-							name={x.name}
-							email={x.email}
-							website={x.website}
-							phone={x.phone}
-						/>
+						<div className="mb-3">
+							<ProfileComponent
+								key={x.id}
+								name={x.name}
+								email={x.email}
+								website={x.website}
+								phone={x.phone}
+							/>
+							<br />
+						</div>
 					))}
-				</Stack>
+				</div>
 			)}
 		</div>
 	);
