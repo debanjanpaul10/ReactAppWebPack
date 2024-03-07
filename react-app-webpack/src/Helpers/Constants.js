@@ -1,0 +1,1 @@
+export const TypiCodeApiUrl = 'https://jsonplaceholder.typicode.com/users';

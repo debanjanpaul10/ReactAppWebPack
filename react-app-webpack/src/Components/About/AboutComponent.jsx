@@ -1,10 +1,11 @@
 import React, { useEffect } from "react";
-import { Spinner, OverlayTrigger, Tooltip } from "react-bootstrap";
+import { OverlayTrigger, Tooltip } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { createSelector } from "reselect";
 
 import * as actions from "../Store/Actions";
 import ProfileComponent from "./Components/ProfileComponent";
+import LoaderComponent from "../Common/LoaderComponent";
 
 /**
  * The About Component
@@ -49,29 +50,14 @@ function AboutComponent() {
 			</div>
 
 			{AboutComponentStoreData.isLoading ? (
-				<div className="text-center">
-					<Spinner
-						animation="grow"
-						role="profiledata"
-						className="spinnerStyle"
-					/>
-					<Spinner
-						animation="grow"
-						role="profiledata"
-						className="spinnerStyle"
-					/>
-					<Spinner
-						animation="grow"
-						role="profiledata"
-						className="spinnerStyle"
-					/>
-				</div>
+				<LoaderComponent />
 			) : (
 				<div className="mt-5 text-center">
 					{AboutComponentStoreData.namesData.map((x) => (
 						<div className="mb-3">
 							<ProfileComponent
 								key={x.id}
+								userId={x.id}
 								name={x.name}
 								email={x.email}
 								website={x.website}

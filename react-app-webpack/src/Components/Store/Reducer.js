@@ -2,11 +2,16 @@ import {
 	LOADER_START,
 	LOADER_STOP,
 	GET_ABOUT_NAMES_JSON_DATA,
+	GET_ABOUT_USER_JSON_DATA,
+	MODAL_LOADER_START,
+	MODAL_LOADER_STOP
 } from "../Store/ActionTypes";
 
 const initialState = {
 	namesData: [],
 	isLoading: true,
+	userData: {},
+	isModalLoading: false,
 };
 
 /**
@@ -24,6 +29,12 @@ const reducer = (state = initialState, action = null) => {
 					namesData: action.payload,
 				};
 			}
+			case GET_ABOUT_USER_JSON_DATA: {
+				return {
+					...state,
+					userData : action.payload,
+				}
+			}
 			case LOADER_START: {
 				return {
 					...state,
@@ -35,6 +46,18 @@ const reducer = (state = initialState, action = null) => {
 					...state,
 					isLoading: false,
 				};
+			}
+			case MODAL_LOADER_START: {
+				return {
+					...state,
+					isModalLoading: true,
+				}
+			}
+			case MODAL_LOADER_STOP: {
+				return {
+					...state,
+					isModalLoading: false,
+				}
 			}
 			default: {
 				return {

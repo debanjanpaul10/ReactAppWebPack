@@ -21,7 +21,7 @@ export const GetUsersDataApiAsync = () => {
 		} finally {
 			setTimeout(() => {
 				dispatch(StopLoader());
-			}, 3000);
+			}, 2000);
 		}
 	};
 };
@@ -45,18 +45,30 @@ export const GetUsersDataApiAsyncSuccess = (data) => {
 export const GetUsersDataByIdApiAsync = (id) => {
 	return async (dispatch) => {
 		try {
-			dispatch(StartLoader());
+			dispatch(StartModalLoader());
 			const response = await GetUsersDataByIdAsync(id);
 			if (response && response.data) {
-				dispatch(GetUsersDataApiAsyncSuccess(response.data));
+				dispatch(GetUsersDataApiAsyncByIdSuccess(response.data));
 			}
 		} catch (error) {
 			console.error(error);
 		} finally {
 			setTimeout(() => {
-				dispatch(StopLoader());
-			}, 3000);
+				dispatch(StopModalLoader());
+			}, 2000);
 		}
+	};
+};
+
+/**
+ * Saves the User API data to redux store
+ * @param {Object} data The data from the API
+ * @returns {Object} The action type and payload data
+ */
+export const GetUsersDataApiAsyncByIdSuccess = (data) => {
+	return {
+		type: actionTypes.GET_ABOUT_USER_JSON_DATA,
+		payload: data,
 	};
 };
 
@@ -77,5 +89,17 @@ export const StartLoader = () => {
 export const StopLoader = () => {
 	return {
 		type: actionTypes.LOADER_STOP,
+	};
+};
+
+export const StartModalLoader = () => {
+	return {
+		type: actionTypes.MODAL_LOADER_START,
+	};
+};
+
+export const StopModalLoader = () => {
+	return {
+		type: actionTypes.MODAL_LOADER_STOP,
 	};
 };

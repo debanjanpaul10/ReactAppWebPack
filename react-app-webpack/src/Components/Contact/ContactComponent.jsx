@@ -11,10 +11,9 @@ import {
 
 /**
  * The Contact Component
- * @param {Object} props The props from parent component
  * @returns {JSX.Element} The React JSX Element
  */
-function ContactComponent(props) {
+function ContactComponent() {
 	const [formData, setFormData] = useState({
 		Name: "",
 		Email: "",

@@ -4,7 +4,7 @@ import { Route, Routes } from "react-router-dom";
 import HomeComponent from "./Home/HomeComponent";
 import "../Styles/App.scss";
 import AboutComponent from "./About/AboutComponent";
-import NavigationComponent from "./NavigationComponent";
+import NavigationComponent from "./Common/NavigationComponent";
 import ContactComponent from "./Contact/ContactComponent";
 
 /**
