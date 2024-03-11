@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import { Modal } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
+import { createSelector } from "@reduxjs/toolkit";
+
 import * as actions from "../../Store/Actions";
-import { createSelector } from "reselect";
 import LoaderComponent from "../../Common/LoaderComponent";
+import { useBoolean } from "../../../Helpers/useBoolean";
 
 /**
  * The Profile Component
@@ -13,7 +15,7 @@ import LoaderComponent from "../../Common/LoaderComponent";
 function ProfileComponent({ userId, name }) {
 	const dispatch = useDispatch();
 
-	const [showModal, setShowModal] = useState(false);
+	const modalPopup = useBoolean(false);
 
 	/**
 	 * Gets the Profile Component Redux Store Data
@@ -31,10 +33,8 @@ function ProfileComponent({ userId, name }) {
 	/** Shows the modal */
 	const handleShow = () => {
 		dispatch(actions.GetUsersDataByIdApiAsync(userId));
-		setShowModal(true);
+		modalPopup.setTrue();
 	};
-	/** Hides the modal */
-	const handleClose = () => setShowModal(false);
 
 	return (
 		<>
@@ -47,8 +47,8 @@ function ProfileComponent({ userId, name }) {
 			</span>
 
 			<Modal
-				show={showModal}
-				onHide={handleClose}
+				show={modalPopup.value}
+				onHide={modalPopup.setFalse}
 				backdrop="static"
 				keyboard={false}
 				centered

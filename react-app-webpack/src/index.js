@@ -1,15 +1,14 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
 import { MemoryRouter } from "react-router-dom";
-
-import "../public/favicon.jpg";
-
-import App from "./Components/App";
-import RootReducer from "./Components/Store/Reducer";
-import { combineReducers } from "redux";
+import { configureStore } from "@reduxjs/toolkit";
 import { thunk } from "redux-thunk";
 import { Provider } from "react-redux";
-import { configureStore } from "@reduxjs/toolkit";
+import { combineReducers } from "redux";
+
+import "../public/favicon.jpg";
+import App from "./Components/App";
+import RootReducer from "./Components/Store/Reducer";
 
 const defaultReducer = combineReducers({
 	RootReducer: RootReducer,

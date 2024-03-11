@@ -1,7 +1,7 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { OverlayTrigger, Tooltip } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { createSelector } from "reselect";
+import { createSelector } from "@reduxjs/toolkit";
 
 import * as actions from "../Store/Actions";
 import ProfileComponent from "./Components/ProfileComponent";
@@ -13,6 +13,8 @@ import LoaderComponent from "../Common/LoaderComponent";
  */
 function AboutComponent() {
 	const dispatch = useDispatch();
+
+	const [namesData, setNamesData] = useState([]);
 
 	/**
 	 * Gets the About Component Redux Store Data
@@ -28,8 +30,16 @@ function AboutComponent() {
 	);
 
 	useEffect(() => {
-		dispatch(actions.GetUsersDataApiAsync());
+		if (AboutComponentStoreData.namesData.length === 0) {
+			dispatch(actions.GetUsersDataApiAsync());
+		}
 	}, []);
+
+	useEffect(() => {
+		if (AboutComponentStoreData.namesData !== namesData) {
+			setNamesData(AboutComponentStoreData.namesData);
+		}
+	}, [AboutComponentStoreData.namesData])
 
 	return (
 		<div className="container">
@@ -54,15 +64,8 @@ function AboutComponent() {
 			) : (
 				<div className="mt-5 text-center">
 					{AboutComponentStoreData.namesData.map((x) => (
-						<div className="mb-3">
-							<ProfileComponent
-								key={x.id}
-								userId={x.id}
-								name={x.name}
-								email={x.email}
-								website={x.website}
-								phone={x.phone}
-							/>
+						<div className="mb-3" key={x.id}>
+							<ProfileComponent userId={x.id} name={x.name} />
 							<br />
 						</div>
 					))}

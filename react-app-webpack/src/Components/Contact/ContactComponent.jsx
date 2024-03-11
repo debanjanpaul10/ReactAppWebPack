@@ -7,7 +7,9 @@ import {
 	FormLabel,
 	Row,
 	Col,
+	Modal,
 } from "react-bootstrap";
+import { useBoolean } from "../../Helpers/useBoolean";
 
 /**
  * The Contact Component
@@ -20,6 +22,8 @@ function ContactComponent() {
 		Subject: "",
 		Message: "",
 	});
+
+	const modalPopup = useBoolean(false);
 
 	/**
 	 * Handles the event change
@@ -37,6 +41,7 @@ function ContactComponent() {
 	 */
 	const submitData = () => {
 		console.log(formData);
+		modalPopup.setTrue();
 		setFormData({
 			Name: "",
 			Email: "",
@@ -49,6 +54,7 @@ function ContactComponent() {
 		<>
 			<div className="container-fluid">
 				<h2 className="display-4">Contact us!</h2>
+				<br />
 				<div className="form" id="contact-us-form">
 					<Form>
 						<FormGroup as={Row} className="mb-3">
@@ -72,7 +78,7 @@ function ContactComponent() {
 							<Col sm={10}>
 								<FormControl
 									type="email"
-									placeholder="What's your EmailID?"
+									placeholder="What's your email address?"
 									id="Email"
 									onChange={onInputChange}
 								/>
@@ -101,7 +107,7 @@ function ContactComponent() {
 								<FormControl
 									as="textarea"
 									rows={3}
-									placeholder="What's your message?"
+									placeholder="What's your actual message?"
 									id="Message"
 									onChange={onInputChange}
 								/>
@@ -116,6 +122,19 @@ function ContactComponent() {
 					</Form>
 				</div>
 			</div>
+
+			<Modal data-bs-theme="dark"
+				show={modalPopup.value}
+				onHide={modalPopup.setFalse}
+				backdrop="static"
+				keyboard={false}
+				centered
+			>
+				<Modal.Header closeButton></Modal.Header>
+				<Modal.Body className="text-center display-4 text-white">
+					<p>Information has been sent!</p>
+				</Modal.Body>
+			</Modal>
 		</>
 	);
 }

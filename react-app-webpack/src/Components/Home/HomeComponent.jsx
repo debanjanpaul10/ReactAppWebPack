@@ -1,5 +1,6 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
+
 import FunctionalComponent from "./Components/FunctionalComponent";
 import ClassComponent from "./Components/ClassComponent";
 /**

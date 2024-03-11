@@ -20,6 +20,7 @@ function App() {
 				<Route path="/About" element={<AboutComponent />} />
 				<Route path="/Contact" element={<ContactComponent />} />
 			</Routes>
+			<hr />
 		</div>
 	);
 }
